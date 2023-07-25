@@ -8,6 +8,7 @@ public class Pizza {
     private boolean echeese;
     private boolean  eToppings;
     private boolean paperBag;
+    private boolean issBillgenerated;
     private int toppingsPrice;
     private int paperBagPrice;
     private int cheesePrice;
@@ -24,6 +25,7 @@ public class Pizza {
         }
         paperBagPrice=20;
         cheesePrice=80;
+        bill="Base Price Of The Pizza: "+basePrice+"\n";
     }
 
     public int getPrice(){
@@ -32,7 +34,6 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(!echeese){
-            bill="Extra Cheese Added: "+cheesePrice+ "\n";
             echeese=true;
             price=basePrice+cheesePrice;
         }
@@ -40,7 +41,6 @@ public class Pizza {
 
     public void addExtraToppings(){
         if(!eToppings){
-            bill=bill+"Extra Toppings Added: "+ toppingsPrice+"\n";
             eToppings=false;
             price=price+toppingsPrice;
         }
@@ -48,14 +48,25 @@ public class Pizza {
 
     public void addTakeaway(){
         if(!paperBag){
-            bill=bill+"Paperbag Added: "+paperBagPrice+"\n";
             paperBag=true;
             price=price+paperBagPrice;
         }
-
     }
-
     public String getBill(){
-        return "Base Price Of The Pizza: "+basePrice+"\n"+ this.bill+"Total Price: "+this.price+"\n";
+        if(!issBillgenerated){
+            issBillgenerated=true;
+            if(echeese){
+                bill=bill+"Extra Cheese Added: "+cheesePrice+ "\n";
+            }
+            if(eToppings){
+                bill=bill+"Extra Toppings Added: "+ toppingsPrice+"\n";
+            }
+            if(paperBag){
+                bill= bill+"Paperbag Added: "+paperBagPrice+"\n";
+            }
+            bill=bill+"Total Price: "+price+"\n";
+            return this.bill;
+        }
+        return "";
     }
 }
