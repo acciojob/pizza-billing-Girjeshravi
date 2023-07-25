@@ -47,12 +47,15 @@ public class Pizza {
     }
 
     public void addTakeaway(){
-        bill=bill+"Paperbag Added: "+paperBagPrice+"\n";
-        paperBag=true;
-        price=price+paperBagPrice;
+        if(!paperBag){
+            bill=bill+"Paperbag Added: "+paperBagPrice+"\n";
+            paperBag=true;
+            price=price+paperBagPrice;
+        }
+
     }
 
     public String getBill(){
-        return "Base Price Of The Pizza "+this.basePrice +"\n"+"Total Price: "+ this.bill;
+        return "Base Price Of The Pizza: "+basePrice+"\n"+ this.bill+"Total Price: "+this.price+"\n";
     }
 }
