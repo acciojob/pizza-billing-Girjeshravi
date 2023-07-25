@@ -32,7 +32,7 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(!echeese){
-            bill="Extra Cheese Added: "+cheesePrice+ "/n";
+            bill="Extra Cheese Added: "+cheesePrice+ "\n";
             echeese=true;
             price=basePrice+cheesePrice;
         }
@@ -40,19 +40,19 @@ public class Pizza {
 
     public void addExtraToppings(){
         if(!eToppings){
-            bill=bill+"Extra Toppings Added: "+ toppingsPrice+"/n";
+            bill=bill+"Extra Toppings Added: "+ toppingsPrice+"\n";
             eToppings=false;
             price=price+toppingsPrice;
         }
     }
 
     public void addTakeaway(){
-        bill=bill+"Paperbag Added: "+paperBagPrice+"/n";
+        bill=bill+"Paperbag Added: "+paperBagPrice+"\n";
         paperBag=true;
         price=price+paperBagPrice;
     }
 
     public String getBill(){
-        return "Base Price Of The Pizza "+this.basePrice +"/n"+"Total Price: "+ this.bill;
+        return "Base Price Of The Pizza "+this.basePrice +"\n"+"Total Price: "+ this.bill;
     }
 }
